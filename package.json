@@ -1,0 +1,37 @@
+{
+  "name": "weixin-article-exporter-cli",
+  "version": "0.1.0",
+  "description": "微信公众号历史文章列表同步、JSON 导出与 HTML 下载 CLI",
+  "type": "module",
+  "bin": {
+    "weixin-article-exporter": "./index.mjs"
+  },
+  "files": [
+    "index.mjs",
+    "README.md",
+    "LICENSE"
+  ],
+  "keywords": [
+    "weixin",
+    "wechat",
+    "mp-weixin",
+    "cli",
+    "article",
+    "exporter"
+  ],
+  "scripts": {
+    "start": "node index.mjs",
+    "check": "node --check index.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "author": "wisdom12333 <wisdom12333@icloud.com>",
+  "license": "MIT",
+  "dependencies": {
+    "jpeg-js": "^0.4.4",
+    "jsqr": "^1.4.0",
+    "node-html-markdown": "^2.0.0",
+    "qrcode": "^1.5.4"
+  }
+}

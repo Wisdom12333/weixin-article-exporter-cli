@@ -1,0 +1,5 @@
+.data/
+.weixin-article-exporter-cli/
+node_modules/
+npm-debug.log*
+.DS_Store
