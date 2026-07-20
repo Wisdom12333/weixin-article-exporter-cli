@@ -27,23 +27,55 @@
 
 CLI 仅使用 Node.js 内置模块，不需要安装运行时依赖。
 
-## 快速开始
+## 安装
 
-在项目目录中直接运行：
+支持两种安装方式，按使用场景选择。
+
+### 方式一：npm 全局安装（手动调用）
+
+面向自己在终端里直接敲命令使用的场景：
 
 ```bash
+npm install -g weixin-article-exporter-cli
+weixin-article-exporter --help
+weixin-article-exporter --status
+```
+
+卸载：
+
+```bash
+npm uninstall -g weixin-article-exporter-cli
+```
+
+### 方式二：作为 Skill 安装（通过 Agent 调用）
+
+面向让 Claude Code 等支持 [skills](https://github.com/vercel-labs/skills) 的 Agent 自动识别并调用本 CLI 完成同步/导出任务的场景，无需自己记命令：
+
+```bash
+npx skills add Wisdom12333/weixin-article-exporter-cli
+```
+
+该命令会把仓库中的 `SKILL.md`（以及同目录下的 `index.mjs`、`package.json` 等文件）安装到 Agent 的技能目录（如 Claude Code 的 `.claude/skills/`）。Agent 后续在合适的场景（登录、同步、导出、下载文章等）会自动读取 `SKILL.md` 并调用 `node index.mjs ...`，不需要额外执行方式一的全局安装步骤，只需本机具备 Node.js 20+ 环境。
+
+### 从源码运行（开发/贡献）
+
+克隆仓库后可直接运行，无需安装：
+
+```bash
+git clone https://github.com/Wisdom12333/weixin-article-exporter-cli.git
+cd weixin-article-exporter-cli
 node index.mjs --help
 node index.mjs --status
 ```
 
-注册为本机命令：
+也可以用 `npm link` 在本机注册为全局命令，方便边改代码边用真实命令名测试：
 
 ```bash
 npm link
 weixin-article-exporter --help
 ```
 
-解除本机命令：
+解除：
 
 ```bash
 npm unlink -g weixin-article-exporter-cli
