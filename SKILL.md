@@ -11,7 +11,7 @@ description: 微信公众号历史文章同步、JSON 导出、HTML/Markdown 下
 
 - Node.js 20+
 - 可访问 `mp.weixin.qq.com`
-- 一个可扫码确认的微信公众平台账号
+- 一个已绑定/管理某个微信公众号的账号（能正常登录 mp.weixin.qq.com 后台），而非普通个人微信号——普通微信号如果没有关联任何公众号，无法完成 `--login` 扫码登录
 
 ## 安装与调用
 
