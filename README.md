@@ -59,7 +59,7 @@ npx skills add Wisdom12333/weixin-article-exporter-cli
 
 ### 从源码运行（开发/贡献）
 
-克隆仓库后可直接运行，无需安装：
+克隆仓库后可直接运行，无需安装（`index.mjs` 是已打包好的自包含产物）：
 
 ```bash
 git clone https://github.com/Wisdom12333/weixin-article-exporter-cli.git
@@ -67,6 +67,8 @@ cd weixin-article-exporter-cli
 node index.mjs --help
 node index.mjs --status
 ```
+
+如果要修改源码（`src/cli.mjs`），需要先 `npm install` 再 `npm run build` 重新生成 `index.mjs`，详见下方"开发"一节。
 
 也可以用 `npm link` 在本机注册为全局命令，方便边改代码边用真实命令名测试：
 
@@ -258,9 +260,13 @@ cp -R /Users/wisdom/Documents/project.nosync/wechat-article-exporter/cli/.data \
 
 ## 开发
 
+源码在 `src/cli.mjs`；仓库根目录的 `index.mjs` 是用 esbuild 打包出的自包含产物（已提交到仓库，直接运行或发布用），不要手工修改 `index.mjs`。
+
 ```bash
+npm install       # 安装 devDependencies（esbuild 及构建期用到的运行时库）
+npm run build     # 打包 src/cli.mjs -> index.mjs
 npm run check
 node index.mjs --help
 ```
 
-项目刻意保持单文件和零运行时依赖。修改接口解析或登录流程后，应至少验证登录状态、搜索、增量同步、导出和 HTML 下载。
+项目刻意保持单文件源码和零运行时依赖的构建产物。修改接口解析或登录流程后，应重新构建，再至少验证登录状态、搜索、增量同步、导出和 HTML 下载。

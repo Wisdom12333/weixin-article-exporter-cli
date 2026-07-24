@@ -15,7 +15,7 @@ description: 微信公众号历史文章同步、JSON 导出、HTML/Markdown 下
 
 ## 安装与调用
 
-在技能所在目录下直接用 `node index.mjs` 调用；如果已经 `npm link` 过，也可以用全局命令 `weixin-article-exporter`。两者命令参数完全一致，以下统一用 `weixin-article-exporter` 表示。
+`index.mjs` 是打包好的自包含产物（内置全部依赖），装完技能后**不需要 `npm install`**，在技能所在目录下直接用 `node index.mjs` 调用即可；如果已经 `npm link` 过，也可以用全局命令 `weixin-article-exporter`。两者命令参数完全一致，以下统一用 `weixin-article-exporter` 表示。
 
 ```bash
 weixin-article-exporter --help
